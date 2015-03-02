@@ -65,8 +65,11 @@ void CPackMachine::WriteCollectedData()
 {
 	assert(m_outFile != nullptr);
 
-	putc(m_count, m_outFile);
-	putc(m_data, m_outFile);
+	if (m_count != 0)
+	{
+		putc(m_count, m_outFile);
+		putc(m_data, m_outFile);
+	}
 
 	m_count = 0;
 }
